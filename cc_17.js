@@ -22,3 +22,25 @@ customer1.addPurchase(50);
 console.log('New Customer:', customer1.name);
 console.log('Total Spent:', customer1.getTotalSpent());
 
+// Task 2: Create a SalesRep Class
+console.log('****Sales Reps Clients and Total Spent for a Specific Client****');
+class SalesRep {
+    constructor(name) {
+      this.name = name;
+      this.clients = [];
+    }
+    addClient(customer) {
+      this.clients.push(customer);
+    }
+    getClientTotal(name) {
+      const client = this.clients.find(c => c.name === name);
+      return client ? client.getTotalSpent() : 0;
+    }
+  }
+
+// Test Case for Task 2
+const salesRep = new SalesRep('Kwon Jae-Sung');
+salesRep.addClient(customer1);
+console.log('Sales Rep Clients:', salesRep.clients.map(c => c.name));
+console.log('Total Spent by Miguel Diaz:', salesRep.getClientTotal('Miguel Diaz'));
+
