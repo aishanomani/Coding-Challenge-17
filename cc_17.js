@@ -65,3 +65,18 @@ vipCustomer.addPurchase(300);
 console.log('VIP Customer:', vipCustomer.name, 'Level:', vipCustomer.vipLevel);
 console.log('VIP Total Spent with Bonus:', vipCustomer.getTotalSpent());
 
+// Task 4: Build a Client Report System
+console.log('****Finalized Report****');
+const customers = [customer1, vipCustomer];
+salesRep.addClient(vipCustomer);
+const totalRevenue = customers.reduce((total, customer) => total + customer.getTotalSpent(), 0);
+const highSpenders = customers.filter(c => c.getTotalSpent() > 500);
+const customerSummary = customers.map(c => ({
+  name: c.name,
+  totalSpent: c.getTotalSpent()
+}));
+
+// Test Case for Task 4:
+console.log('Total Revenue:', totalRevenue);
+console.log('High-Spending Customers:', highSpenders.map(c => c.name));
+console.log('Customer Summary:', customerSummary);
