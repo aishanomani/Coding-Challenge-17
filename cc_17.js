@@ -44,3 +44,24 @@ salesRep.addClient(customer1);
 console.log('Sales Rep Clients:', salesRep.clients.map(c => c.name));
 console.log('Total Spent by Miguel Diaz:', salesRep.getClientTotal('Miguel Diaz'));
 
+// Task 3: Create a VIPCustomer Class
+console.log('****VIP Customers Total Spent with Bonus****');
+class VIPCustomer extends Customer {
+    constructor(name, email, vipLevel) {
+      super(name, email);
+      this.vipLevel = vipLevel;
+    }
+    getTotalSpent() {
+      const baseTotal = super.getTotalSpent();
+      return baseTotal * 1.1; // Adds 10% Loyalty Bonus
+    }
+  }
+
+// Test Case for Task 3
+const vipCustomer = new VIPCustomer('Zara Malik', 'zaramalik@gmail.com', 'Platinum');
+vipCustomer.addPurchase(500);
+vipCustomer.addPurchase(200);
+vipCustomer.addPurchase(300);
+console.log('VIP Customer:', vipCustomer.name, 'Level:', vipCustomer.vipLevel);
+console.log('VIP Total Spent with Bonus:', vipCustomer.getTotalSpent());
+
